@@ -96,8 +96,16 @@ class MinimalServiceWorker {
     }
 
     private handleMessage(request: any, sender: any, sendResponse: (response: any) => void): void {
+        if (request.action === 'injectPageScript') {
+            this.injectPageScript(sender.tab?.id)
+                .then(() => sendResponse({ success: true }))
+                .catch(error => {
+                    console.error('Page script injection error:', error);
+                    sendResponse({ error: error.message });
+                });
+        }
         // Basic message forwarding to active tab
-        if (request.action === 'toggleExtension') {
+        else if (request.action === 'toggleExtension') {
             this.chromePromise.tabs.query({ active: true, currentWindow: true })
                 .then(tabs => {
                     if (tabs[0]?.id) {
@@ -112,6 +120,46 @@ class MinimalServiceWorker {
                 });
         } else {
             sendResponse({ success: true });
+        }
+    }
+
+    private async injectPageScript(tabId?: number): Promise<void> {
+        if (!tabId) return;
+        
+        try {
+            // Check if page script is already injected
+            const results = await this.chromePromise.scripting.executeScript({
+                target: { tabId },
+                func: () => {
+                    return document.getElementById('midnight-lizard-page-script-injected') !== null;
+                }
+            });
+
+            if (results[0]?.result) {
+                return; // Already injected
+            }
+
+            // Inject the page script using proper chrome.scripting API
+            await this.chromePromise.scripting.executeScript({
+                target: { tabId },
+                files: ['js/page-script.js'],
+                world: 'MAIN' // Inject into the main world to access page context
+            });
+
+            // Mark as injected
+            await this.chromePromise.scripting.executeScript({
+                target: { tabId },
+                func: () => {
+                    const marker = document.createElement('meta');
+                    marker.id = 'midnight-lizard-page-script-injected';
+                    marker.style.display = 'none';
+                    document.head.appendChild(marker);
+                }
+            });
+
+        } catch (error) {
+            console.error('Failed to inject page script:', error);
+            throw error;
         }
     }
 }

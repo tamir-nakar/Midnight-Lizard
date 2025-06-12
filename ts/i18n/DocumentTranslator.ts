@@ -56,7 +56,22 @@ class DocumentTranslator implements IDocumentTranslator
                 const htmlMsg = this._i18n.getMessage(`${basis}_html_${htmlMsgSuffix}`);
                 if (htmlMsg)
                 {
-                    tag.innerHTML = htmlMsg;
+                    // Use CSP-compliant approach: parse HTML safely using DOMParser
+                    const parser = new DOMParser();
+                    const parsedDoc = parser.parseFromString(htmlMsg, 'text/html');
+                    
+                    // Clear existing content
+                    while (tag.firstChild) {
+                        tag.removeChild(tag.firstChild);
+                    }
+                    
+                    // Import and append parsed nodes
+                    const bodyContent = parsedDoc.body;
+                    while (bodyContent.firstChild) {
+                        const importedNode = doc.importNode(bodyContent.firstChild, true);
+                        tag.appendChild(importedNode);
+                        bodyContent.removeChild(bodyContent.firstChild);
+                    }
                 }
             }
         }

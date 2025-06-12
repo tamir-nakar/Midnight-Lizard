@@ -2804,13 +2804,14 @@ class DocumentProcessor implements IDocumentProcessor
     {
         try
         {
-            if (!doc.getElementById("midnight-lizard-page-script"))
+            // Instead of injecting script elements (which violates CSP),
+            // use the modern Manifest V3 approach with chrome.scripting API
+            if (typeof chrome !== 'undefined' && chrome.runtime && chrome.runtime.sendMessage) 
             {
-                const pageScript = doc.createElement("script");
-                pageScript.id = "midnight-lizard-page-script";
-                pageScript.type = "text/javascript";
-                pageScript.src = this._app.getFullPath("/js/page-script.js");
-                (doc.head || doc.documentElement!).appendChild(pageScript);
+                chrome.runtime.sendMessage({
+                    action: 'injectPageScript',
+                    target: 'page'
+                });
             }
         }
         catch (ex)
@@ -2821,8 +2822,12 @@ class DocumentProcessor implements IDocumentProcessor
 
     protected removePageScript(doc: Document)
     {
-        let pageScript = doc.getElementById("midnight-lizard-page-script");
-        pageScript && pageScript.remove();
+        // Remove the marker that indicates page script was injected
+        let marker = doc.getElementById("midnight-lizard-page-script-injected");
+        marker && marker.remove();
+        
+        // Note: The actual page script removal is handled by the script itself
+        // when it detects the extension is being disabled
     }
 
     public applyRoomRules(tag: HTMLElement | PseudoElement, roomRules: RoomRules, _ns?: any)

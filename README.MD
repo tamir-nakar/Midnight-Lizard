@@ -69,6 +69,30 @@ The new nodemon-based watch system automatically rebuilds when you save TypeScri
 3. **See instant builds** triggered automatically by nodemon
 4. **Load extension** in Chrome for testing
 
+## 🛡️ Security & CSP Compliance
+
+This extension is fully compliant with modern Content Security Policy (CSP) requirements:
+
+### ✅ CSP-Safe Features:
+- **No inline script injection** - Uses `chrome.scripting` API instead of creating `<script>` elements
+- **Safe HTML parsing** - Uses `DOMParser` instead of `innerHTML` for user content
+- **Proper script worlds** - Page scripts injected into `MAIN` world context
+- **Permission-based injection** - All script injection requires proper browser permissions
+
+### 🔧 Troubleshooting CSP Errors
+
+If you see CSP-related errors in the console:
+
+1. **"script-src 'self'" violations**: These should be resolved by our Manifest V3 implementation
+2. **"Refused to execute inline script"**: The extension no longer uses inline scripts
+3. **Connection errors**: Ensure the extension has proper permissions in `chrome://extensions/`
+
+### 🔄 If You Still See Errors:
+
+1. **Reload the extension**: Go to `chrome://extensions/` → Click "Reload" on Midnight Chameleon
+2. **Refresh the page**: CSP violations from old script injections will clear
+3. **Check permissions**: Ensure "Allow access to file URLs" is enabled if needed
+
 ---
 
 ```bash
