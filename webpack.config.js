@@ -3,6 +3,8 @@ const glob = require('glob');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = (env, args) => {
+    const isDevelopment = args.mode === 'development';
+    
     /**
      * @param {string} entryName file path to the source entry .ts file
      * @param {string} bundleName file name of the bundle
@@ -17,7 +19,12 @@ module.exports = (env, args) => {
         module: {
             rules: [{
                 test: /\.ts$/,
-                use: 'ts-loader',
+                use: {
+                    loader: 'ts-loader',
+                    options: isDevelopment ? {
+                        transpileOnly: true
+                    } : {}
+                },
                 exclude: /node_modules/
             }]
         },

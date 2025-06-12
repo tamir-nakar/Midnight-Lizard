@@ -1,0 +1,11 @@
+{
+  "watch": ["ts/**/*"],
+  "ext": "ts",
+  "ignore": ["node_modules/**/*", "js/**/*", "_locales/**/*", "css/**/*", "img/**/*"],
+  "exec": "npm run build-dev",
+  "delay": 500,
+  "verbose": true,
+  "env": {
+    "NODE_ENV": "development"
+  }
+} 

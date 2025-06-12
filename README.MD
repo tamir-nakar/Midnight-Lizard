@@ -36,9 +36,40 @@ Transform any website into a dark, customizable theme that's easy on your eyes. 
 2. Run `npm install && npm run prod-build`
 3. Open Chrome → Extensions → Enable "Developer mode"
 4. Click "Load unpacked" → Select the project folder
-5. Enjoy your dark web experience! 🌙
+5. Enjoy your dark web experience! ��
 
-## 🔧 Development
+## 🔧 Development Setup
+
+For fast development with instant builds on file changes:
+
+```bash
+# Standard development build with full source maps
+npm run watch
+
+# Ultra-fast development build (minimal debugging info)
+npm run watch-fast
+```
+
+The new nodemon-based watch system automatically rebuilds when you save TypeScript files, providing instant feedback during development.
+
+### Available Scripts
+
+- `npm run build-dev` - Development build with full source maps (~2-3s)
+- `npm run build-fast` - Ultra-fast build with minimal debugging (~0.5s)
+- `npm run watch` - Watch mode using `build-dev` (recommended)
+- `npm run watch-fast` - Watch mode using `build-fast` (for rapid iteration)
+- `npm run dev-build` - Development build with bundle analyzer
+- `npm run prod-build` - Production build (optimized)
+- `npm run prod-pack` - Build and package for Chrome + Firefox
+
+### Development Workflow
+
+1. **Start development**: `npm run watch`
+2. **Make changes** to TypeScript files in `ts/` directory
+3. **See instant builds** triggered automatically by nodemon
+4. **Load extension** in Chrome for testing
+
+---
 
 ```bash
 # Install dependencies

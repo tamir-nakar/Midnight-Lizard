@@ -55,15 +55,15 @@
                             d="m 38,14 c -3.77661,0.179718 -7.33113,-0.279056 -11.60642,1.334362 -1.52878,0.690518 -2.94066,1.661615 -4.13195,3.162115 -1.43204,1.879799 -1.79873,4.010266 -2.10252,6.155533 l -0.0447,12.86917 0.0121,11.30397 c -0.17259,2.32973 -0.93756,4.39617 -2.3278,6.18472 -1.28147,1.50569 -3.04194,2.42972 -5.27048,2.7854 l -0.0448,3.38128 c 2.38963,0.20238 3.94996,1.31305 5.3458,2.60387 2.11565,2.27423 2.04194,4.43899 2.33224,6.62195 l 5.3e-4,12.88514 0.0595,10.2437 c 0.11927,1.62967 0.35717,3.06951 0.81397,4.15911 0.48193,1.63428 1.30347,2.65039 2.13311,3.65174 1.86649,1.54134 3.62226,2.25229 5.35483,2.78924 3.18043,0.67849 6.2998,0.74649 9.41371,0.7598 l -0.0269,-3.07634 c -2.54409,-0.14309 -4.69721,0.0534 -7.94931,-1.11364 -1.70631,-0.82113 -2.45572,-1.26459 -3.3785,-2.72578 -0.85037,-1.45564 -1.11971,-3.04039 -1.37444,-4.62838 l -0.0183,-10.09136 0.017,-13.00027 c -0.39539,-2.28291 -0.8819,-4.52621 -2.35927,-6.33869 -1.57845,-1.61336 -3.06409,-3.28156 -5.65984,-4.29379 v -0.38052 c 2.11133,-1.19608 4.30681,-2.308 5.63487,-4.28735 1.22371,-1.79812 1.99273,-3.87604 2.33703,-6.21532 l 0.0572,-11.36519 0.0317,-12.2277 c 0.45651,-2.234722 0.90306,-4.473026 3.00928,-6.11385 2.57437,-1.736098 6.14194,-1.816849 9.70642,-1.902765 z"/>
                     </g>
                 </svg>
-                <a class="ml-website-link" target="_blank" href="https://midnight-lizard.org"
+                <a class="ml-website-link" title="About Midnight Chameleon" href="https://midnight-lizard.org"
                    i18n="officialWebsite" i18n-attr="tooltip">Midnight Chameleon</a> settings for
                 <b class="ml-host-state" i18n="hostState" i18n-attr="tooltip">
                     <b id="hostState"></b>
                 </b>
                 <u id="host-name" i18n="hostName" i18n-attr="tooltip"><a id="hostName" href="#">current.website</a></u>
             </div>
-            <a id="help" i18n="helpLink" i18n-attr="tooltip" target="_blank"
-               href="https://groups.google.com/forum/#!searchin/midnight-lizard-support/%22how$20to%22">
+            <a id="help" i18n="helpLink" i18n-attr="tooltip" title="About Midnight Chameleon"
+               onclick="showAboutPopup(event)" style="cursor: pointer;">
                <svg class="help-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path d="M0 0h24v24H0z" fill="none"/>
                     <path d="M11 18h2v-2h-2v2zm1-16C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm0-14c-2.21 0-4 1.79-4 4h2c0-1.1.9-2 2-2s2 .9 2 2c0 2-3 1.75-3 5h2c0-2.25 3-2.5 3-5 0-2.21-1.79-4-4-4z"/>
@@ -322,7 +322,7 @@ L 14.5 12 z" />
                         Include match patterns
                         <a class="ml-input-help-link" tabindex="-1"
                            i18n="matchPatternsSyntaxLink" i18n-attr="title" i18n-text="label"
-                           target="_blank" href="https://developer.chrome.com/extensions/match_patterns">Syntax</a>
+                           title="About Midnight Chameleon" href="https://developer.chrome.com/extensions/match_patterns">Syntax</a>
                     </label>
                     <textarea id="includeMatches" class="ml-dialog-input ml-dialog-input-text ml-matches-input setting"
                               rows="3" wrap="off" maxlength="4000"
@@ -336,7 +336,7 @@ L 14.5 12 z" />
                         Exclude match patterns
                         <a class="ml-input-help-link" tabindex="-1"
                            i18n="matchPatternsSyntaxLink" i18n-attr="title" i18n-text="label"
-                           target="_blank" href="https://developer.chrome.com/extensions/match_patterns">Syntax</a>
+                           title="About Midnight Chameleon" href="https://developer.chrome.com/extensions/match_patterns">Syntax</a>
                     </label>
                     <textarea id="excludeMatches" class="ml-dialog-input ml-dialog-input-text ml-matches-input setting"
                               rows="3" wrap="off" maxlength="4000"
@@ -1883,7 +1883,7 @@ L 14.5 12 z" />
                 <div class="ml-long-cmd-container">
                   <div class="filler"></div>
                   <a class="ml-helio-button cyan icon-button"
-                     target="_blank" href="https://midnight-lizard.org/schemes"
+                     title="About Midnight Chameleon" href="https://midnight-lizard.org/schemes"
                      i18n="onlineColorSchemesLink" i18n-attr="title" i18n-text="label">
                     <svg class="ml-button-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                       <path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96z"/>
@@ -1995,7 +1995,7 @@ L 14.5 12 z" />
             <!-- <div class="ml-footer-icon-container left"
                  id="google-plus-link"
                  tooltip="Google Plus">
-                <a target="_blank" href="https://plus.google.com/+MidnightChameleon">
+                <a title="About Midnight Chameleon" href="https://plus.google.com/+MidnightChameleon">
                     <svg class="ml-footer-icon google-plus-icon"
                          viewBox="0 0 64 64">
                         <path d="M56,30h-5v-5h-4v5h-5v4h5v5h4v-5h5 M24,29v6.24h8.721C32.05,39,28.79,41.74,24,41.74 c-5.279,0-9.57-4.471-9.57-9.75c0-5.281,4.291-9.74,9.57-9.74c2.38,0,4.51,0.82,6.189,2.42v0.01l4.511-4.51 C31.93,17.59,28.32,16,24,16c-8.84,0-16,7.16-16,16s7.16,16,16,16c9.24,0,15.359-6.5,15.359-15.641c0-1.17-0.109-2.289-0.31-3.359 H24z"
@@ -2004,17 +2004,17 @@ L 14.5 12 z" />
                 </a>
             </div> -->
             <!-- <div class="ml-footer-icon-container left" tooltip="Pinterest" id="pinterest-link">
-                <a target="_blank" href="https://www.pinterest.com/MidnightChameleon/">
+                <a title="About Midnight Chameleon" href="https://www.pinterest.com/MidnightChameleon/">
                     <svg class="ml-footer-icon pinterest-icon" viewBox="3 3 70 70">
                         <path d="M27.5 71c3.3 1 6.7 1.6 10.3 1.6C57 72.6 72.6 57 72.6 37.8 72.6 18.6 57 3 37.8 3 18.6 3 3 18.6 3 37.8c0 14.8 9.3 27.5 22.4 32.5-.3-2.7-.6-7.2 0-10.3l4-17.2s-1-2-1-5.2c0-4.8 3-8.4 6.4-8.4 3 0 4.4 2.2 4.4 5 0 3-2 7.3-3 11.4C35.6 49 38 52 41.5 52c6.2 0 11-6.6 11-16 0-8.3-6-14-14.6-14-9.8 0-15.6 7.3-15.6 15 0 3 1 6 2.6 8 .3.2.3.5.2 1l-1 3.8c0 .6-.4.8-1 .4-4.4-2-7-8.3-7-13.4 0-11 7.8-21 22.8-21 12 0 21.3 8.6 21.3 20 0 12-7.4 21.6-18 21.6-3.4 0-6.7-1.8-7.8-4L32 61.7c-.8 3-3 7-4.5 9.4z"
                               fill-rule="evenodd"></path>
           </svg>
         </a>
       </div> -->
-      <div class="ml-footer-icon-container right"
+      <div class="ml-footer-icon-container"
            id="donate-link" i18n="donateLink"
            i18n-attr="tooltip">
-        <a target="_blank"
+        <a title="About Midnight Chameleon"
            href="https://buymeacoffee.com/thecart"
            i18n="donateLink" i18n-attr="marker,notice">
           <svg class="ml-footer-icon donate-icon" viewBox="0 0 24 24">
@@ -2023,17 +2023,17 @@ L 14.5 12 z" />
           </svg>
         </a>
       </div>
-      <div class="ml-footer-icon-container right" id="rate-link"
+      <div class="ml-footer-icon-container" id="rate-link"
            i18n="rateLink" i18n-attr="tooltip">
-        <a target="_blank" href="https://chrome.google.com/webstore/detail/midnight-lizard/pbnndmlekkboofhnbonilimejonapojg/reviews">
+        <a title="About Midnight Chameleon" href="https://chrome.google.com/webstore/detail/midnight-lizard/pbnndmlekkboofhnbonilimejonapojg/reviews">
           <svg class="ml-footer-icon rate-icon" viewBox="0 0 18 18">
             <path d="M9 11.3l3.71 2.7-1.42-4.36L15 7h-4.55L9 2.5 7.55 7H3l3.71 2.64L5.29 14z" />
             <path d="M0 0h18v18H0z" fill="none" />
           </svg>
         </a>
       </div>
-      <!-- <div class="ml-footer-icon-container right" id="email-link" i18n="emailLink" i18n-attr="tooltip">
-        <a target="_blank" href="mailto:support@midnight-lizard.org">
+      <!-- <div class="ml-footer-icon-container" id="email-link" i18n="emailLink" i18n-attr="tooltip">
+        <a title="About Midnight Chameleon" href="mailto:support@midnight-lizard.org">
           <svg class="ml-footer-icon email-icon" viewBox="0 0 24 24">
             <path d="M0 0h24v24H0z" fill="none" />
             <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H4V8l8 5 8-5v10zm-8-7L4 6h16l-8 5z"/>
@@ -2126,6 +2126,6 @@ L 14.5 12 z" />
   </datalist>
 
   <script src="../js/popup.js"></script>
-</body>
+<script>function showAboutPopup(event) { event.preventDefault(); alert("About Midnight Chameleon v1.0.0\n\n🦎➡️🦎 Revival Fork of Midnight Lizard\n\nThis is a community-revived fork of the original Midnight Lizard extension, which was created by Pavel Agarkov and has not been updated since May 2021.\n\nThe original extension stopped working due to outdated Manifest V2 architecture. This fork:\n\n• ✅ Updates to Manifest V3 for continued Chrome support\n• ✅ Fixes compatibility issues and runtime errors\n• ✅ Maintains all original dark theme functionality\n• ✅ Preserves credit to the original author\n\nOriginal Extension: Midnight Lizard by Pavel Agarkov (2017-2021)\nFork Maintainers: Midnight Chameleon Team (2024+)\n\nThis fork exists to keep this beloved dark theme extension alive for the community!"); }</script></body>
 
 </html>
