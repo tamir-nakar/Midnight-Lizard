@@ -1,40 +1,102 @@
-# Midnight Lizard [![OpenCollective](https://opencollective.com/midnight-lizard/backers/badge.svg)](#backers) [![OpenCollective](https://opencollective.com/midnight-lizard/sponsors/badge.svg)](#sponsors) [![Crowdin](https://d322cqt584bo4o.cloudfront.net/midnight-lizard/localized.svg)](https://translate.midnight-lizard.org)
+# Midnight Chameleon 🦎🌙
 
-**Midnight Lizard** web-extension for Google **Chrome**™ and Mozilla **Firefox**™ provides custom color schemes for all websites. Each color scheme works on all websites and will never become outdated. There are many predefined color schemes and you can install more from [midnight-lizard.org](https://midnight-lizard.org/schemes)
+> **A revival fork of the original Midnight Lizard extension with Manifest V3 support**
 
-![Wikipedia example](/promo/screenshots/wikipedia-orion-nebula.png?raw=true "Wikipedia example")
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Manifest V3](https://img.shields.io/badge/Manifest-V3-green.svg)](https://developer.chrome.com/docs/extensions/mv3/intro/)
 
-✔ Choose between dark, light, grayscale or colorful color schemes  
-✔ Modify existing or create new color schemes  
-✔ Use different color schemes on each website  
-✔ Adjust brightness, saturation, contrast and hues  
-✔ Improve accessibility and readability  
-✔ Increase contrast to make text easier to read  
-✔ Apply blue light filter to shift all colors towards red light  
-✔ Keep original images and hues without inversion  
-✔ Schedule automatic activation and deactivation  
-✔ Or follow system color scheme schedule  
-✔ Use with PDF and local files (enable in browser settings)  
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<sub><sup>PDF processing is available only in Chromium-based browsers</sup></sub>  
-✔ Dynamically change Firefox theme (disabled by default)  
-✔ Shade bright colors and images  
-✔ Change any colour you want  
-✔ Synchronize your settings  
-✔ Configure background, text, buttons, links, borders, images and scrollbars  
-✔ Apply globally, per-website or with url match patterns  
-✔ Switch between websites blacklist and whitelist modes  
-✔ Use Simplified mode to improve performance on heavy websites  
-✔ Use keyboard shortcuts to toggle extension  
-  ⮚ on current website: Alt+Shift+L  
-  ⮚ globally: Alt+Shift+M  
+## 🔥 Revival Notice
 
-## CONTRIBUTING
-  🌍 [Help translate Midnight Lizard into other languages](https://translate.midnight-lizard.org)  
-  🐛 [Found a bug or have a new feature proposal?](https://github.com/Midnight-Lizard/Midnight-Lizard/issues/new)  
-  💰 [Donate to help us cover infrastructure expenses](https://opencollective.com/midnight-lizard#contribute)  
+**Midnight Chameleon** is a community-maintained revival of the original **Midnight Lizard** extension, created by Pavel Agarkov. The original extension is no longer actively maintained, so we've forked it to:
 
-## BACKERS
-[![Backers](https://opencollective.com/midnight-lizard/backers.svg?width=890)](https://opencollective.com/midnight-lizard#backers)  
+- ✅ **Modernize for Manifest V3** (Chrome's new extension platform)
+- ✅ **Fix compatibility issues** with modern browsers
+- ✅ **Continue development** and bug fixes
+- ✅ **Maintain the beloved dark theme functionality**
 
-## SPONSORS
-[![Sponsors](https://opencollective.com/midnight-lizard/sponsors.svg?width=890)](https://opencollective.com/midnight-lizard#sponsors)  
+## 🎨 What it does
+
+Transform any website into a dark, customizable theme that's easy on your eyes. Perfect for night browsing, reducing eye strain, and creating a consistent dark experience across the web.
+
+### Features:
+- 🌙 **Universal dark mode** for any website
+- 🎨 **Fully customizable** colors, brightness, contrast
+- ⚡ **Fast and lightweight**
+- 🔧 **Per-site settings** with whitelist/blacklist
+- 🎯 **Smart detection** of existing dark themes
+- 📱 **Works on all sites** - social media, docs, news, etc.
+
+## 📦 Installation
+
+### Chrome Web Store
+*Coming soon - pending approval*
+
+### Manual Installation (Development)
+1. Download or clone this repository
+2. Run `npm install && npm run prod-build`
+3. Open Chrome → Extensions → Enable "Developer mode"
+4. Click "Load unpacked" → Select the project folder
+5. Enjoy your dark web experience! 🌙
+
+## 🔧 Development
+
+```bash
+# Install dependencies
+npm install
+
+# Development build with hot reload
+npm run watch
+
+# Production build
+npm run prod-build
+
+# Build extension packages
+npm run prod-pack
+```
+
+## 📜 Legal & Attribution
+
+### Original Work
+This project is based on **Midnight Lizard** by Pavel Agarkov:
+- Original Repository: [Midnight-Lizard/Midnight-Lizard](https://github.com/Midnight-Lizard/Midnight-Lizard)
+- Original Author: Pavel Agarkov (support@midnight-lizard.org)
+- Original License: MIT
+
+### This Fork
+- **License**: MIT (same as original)
+- **Maintainer**: Midnight Chameleon Team
+- **Purpose**: Revival and modernization of the original extension
+- **Changes**: Manifest V3 migration, bug fixes, continued development
+
+We are **not affiliated** with the original author but maintain this fork with respect and gratitude for their excellent work.
+
+## 🤝 Contributing
+
+We welcome contributions! Since the original project is no longer maintained, this fork serves as the community hub for:
+
+- 🐛 Bug fixes
+- ✨ New features  
+- 🔧 Browser compatibility
+- 📚 Documentation
+- 🌍 Translations
+
+## 💖 Support the Project
+
+If this extension helps you, consider:
+- ⭐ **Star this repository**
+- 🐛 **Report bugs** and suggest features
+- 💻 **Contribute code** improvements
+- ☕ **Buy us a coffee** *(coming soon)*
+
+## 📝 Changelog
+
+### v10.7.0 - Revival Release
+- 🚀 **Forked from original Midnight Lizard**
+- ✅ **Migrated to Manifest V3** for Chrome compatibility
+- 🔧 **Fixed Node.js build issues** with modern environments
+- 📦 **Updated dependencies** and build process
+- 🎨 **Rebranded as Midnight Chameleon**
+
+---
+
+**Made with 💙 by the community, inspired by Pavel Agarkov's original vision**

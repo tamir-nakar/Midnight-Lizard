@@ -91,7 +91,7 @@
       <use xlink:href="#inner-frame" mask="url(#inner-frame-mask)"
            fill="#f8f8f8" stroke="#0090a3" stroke-width="2.2"
            stroke-opacity=".449" transform="translate(15 35)"></use>
-      <text x="109" y="237" class="title">Midnight Lizard</text>
+      <text x="109" y="237" class="title">Midnight Chameleon</text>
     </g>
     <g transform="translate(30 47) scale(3)">
       <use xlink:href="#icons"></use>

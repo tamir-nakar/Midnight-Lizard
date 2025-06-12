@@ -1,6 +1,7 @@
 MIT License
 
-Copyright (c) 2018 Midnight Lizard
+Original work Copyright (c) 2018 Midnight Lizard (Pavel Agarkov)
+Modified work Copyright (c) 2024 Midnight Chameleon Team
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -19,3 +20,18 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+---
+
+ATTRIBUTION NOTICE:
+This project (Midnight Chameleon) is a fork and revival of the original 
+Midnight Lizard extension created by Pavel Agarkov. The original project 
+is available at: https://github.com/Midnight-Lizard/Midnight-Lizard
+
+This fork was created to:
+- Migrate the extension to Manifest V3
+- Continue maintenance and development
+- Fix compatibility issues with modern browsers
+
+We are grateful to Pavel Agarkov for creating the original extension and 
+releasing it under the MIT license, which enables this community revival.

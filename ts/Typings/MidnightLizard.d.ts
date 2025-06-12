@@ -17,7 +17,7 @@ interface Node
     /** Processing order */
     mlOrder: ProcessingOrder | undefined;
     mlRowNumber: number | undefined;
-    /** If true - Midnight Lizard would not process this element */
+    /** If true - Midnight Chameleon would not process this element */
     mlIgnore: boolean | null | undefined;
     /** Applies text filter on this element if true */
     mlInvert: boolean | null | undefined;

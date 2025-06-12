@@ -1,11 +1,12 @@
 {
-  "name": "midnight-lizard",
+  "name": "midnight-chameleon",
   "author": {
-    "name": "Pavel Agarkov",
-    "email": "support@midnight-lizard.org"
+    "name": "Midnight Chameleon Team",
+    "email": "support@midnight-chameleon.org"
   },
   "license": "MIT",
   "version": "10.7.0",
+  "description": "Midnight Chameleon - A revival fork of the original Midnight Lizard extension (by Pavel Agarkov) with Manifest V3 support",
   "dependencies": {
     "@types/chrome": "0.0.127",
     "@types/firefox-webext-browser": "82.0.0",
@@ -14,7 +15,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/Midnight-Lizard/Midnight-Lizard.git"
+    "url": "https://github.com/YourUsername/Midnight-Chameleon.git"
   },
   "devDependencies": {
     "archiver": "5.1.0",
@@ -26,9 +27,9 @@
     "webpack-cli": "4.3.1"
   },
   "scripts": {
-    "watch": "webpack --watch --mode=development --devtool inline-source-map",
-    "dev-build": "webpack --mode=development --env useBundleAnalyzer --devtool inline-source-map",
-    "prod-build": "webpack --mode=production",
+    "watch": "NODE_OPTIONS='--openssl-legacy-provider' webpack --watch --mode=development --devtool inline-source-map",
+    "dev-build": "NODE_OPTIONS='--openssl-legacy-provider' webpack --mode=development --env useBundleAnalyzer --devtool inline-source-map",
+    "prod-build": "NODE_OPTIONS='--openssl-legacy-provider' webpack --mode=production",
     "prod-pack": "npm run prod-build && node pack.js chrome && node pack.js firefox",
     "prod-pack:chrome": "npm run prod-build && node pack.js chrome",
     "prod-pack:firefox": "npm run prod-build && node pack.js firefox",

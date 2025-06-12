@@ -1,11 +1,11 @@
 {
-    "manifest_version": 2,
-    "name": "Midnight Lizard",
-    "short_name": "Mid.Lizard",
+    "manifest_version": 3,
+    "name": "Midnight Chameleon",
+    "short_name": "Mid.Chameleon",
     "description": "__MSG_appDesc__",
     "default_locale": "en",
     "version": "10.7.0",
-    "author": "Pavel Agarkov",
+    "author": "Midnight Chameleon Team (Fork of Midnight Lizard by Pavel Agarkov)",
     "icons": {
         "128": "img/ml-icon-128+.png",
         "48": "img/ml-icon-48++.png",
@@ -14,6 +14,9 @@
     },
     "permissions": [
         "storage",
+        "scripting"
+    ],
+    "host_permissions": [
         "<all_urls>"
     ],
     "offline_enabled": true,
@@ -31,20 +34,21 @@
             }
         }
     },
-    "browser_action": {
-        "default_title": "Midnight Lizard",
+    "action": {
+        "default_title": "Midnight Chameleon",
         "default_icon": {
             "38": "img/ml-toolbar-icon-38.png"
         },
         "default_popup": "ui/popup.html"
     },
     "background": {
-        "scripts": [
-            "js/background-page.js"
-        ]
+        "service_worker": "js/background-page.js"
     },
     "web_accessible_resources": [
-        "js/page-script.js"
+        {
+            "resources": ["js/page-script.js"],
+            "matches": ["<all_urls>"]
+        }
     ],
     "content_scripts": [
         {
