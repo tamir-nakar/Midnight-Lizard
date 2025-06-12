@@ -41,7 +41,6 @@ class PopupManager
     protected _setAsDefaultButton!: HTMLButtonElement;
     protected _hostName!: HTMLAnchorElement;
     protected _hostState!: HTMLElement;
-    protected _facebookLink!: HTMLAnchorElement;
     protected _isEnabledToggle!: HTMLInputElement;
     protected _runOnThisSiteCheckBox!: HTMLInputElement;
     protected _runOnAllSitesByDefaultCheckBox!: HTMLInputElement;
@@ -135,7 +134,6 @@ class PopupManager
         this._applyButton = doc.getElementById("applyBtn") as HTMLButtonElement;
         this._hostName = doc.getElementById("hostName") as HTMLAnchorElement;
         this._hostState = doc.getElementById("hostState")!;
-        this._facebookLink = doc.getElementById("facebook-link") as HTMLAnchorElement;
         this._isEnabledToggle = doc.getElementById("isEnabled") as HTMLInputElement;
         this._forgetAllSitesButton = doc.getElementById("forgetAllSitesBtn") as HTMLButtonElement;
         this._deleteAllWebsitesSettingsButton = doc.getElementById("deleteAllSitesSettingsBtn") as HTMLButtonElement;
@@ -161,11 +159,6 @@ class PopupManager
             this._syncSettingsCheckBox.checked = isSync;
             this._syncSettingsCheckBox.onchange = this.onSettingsSyncChanged.bind(this);
         });
-
-        const changeLogLink = doc.getElementById("change-log-link")!;
-        changeLogLink.setAttribute("tooltip",
-            `✏ ${this._app.version}\n${this._i18n.getMessage("changeLogLink_@tooltip")}`);
-        changeLogLink.firstElementChild!.setAttribute("href", `../ui/change-log.html#${this._app.version}`);
 
         (doc.querySelector("#rate-link a") as HTMLAnchorElement).href =
             this._app.browserName === BrowserName.Chrome
