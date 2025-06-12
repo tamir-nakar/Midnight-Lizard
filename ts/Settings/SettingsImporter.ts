@@ -78,13 +78,13 @@ class SettingsImporter implements ISettingsImporter
                         }
                         else
                         {
-                            return Promise.reject(`File [${x.fileName}] has wrong format. Only JSON files originally exported from [Midnight Lizard] can be imported.`);
+                            return Promise.reject(`File [${x.fileName}] has wrong format. Only JSON files originally exported from [Midnight Chameleon] can be imported.`);
                         }
                     }));
             }
             else
             {
-                filePromises.push(Promise.reject(`File [${file.name}] has wrong extension. Only JSON files originally exported from [Midnight Lizard] can be imported.`));
+                filePromises.push(Promise.reject(`File [${file.name}] has wrong extension. Only JSON files originally exported from [Midnight Chameleon] can be imported.`));
             }
         }
 

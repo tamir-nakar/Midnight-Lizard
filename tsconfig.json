@@ -7,7 +7,7 @@
         "strictNullChecks": true,
         "noImplicitAny": true,
         "module": "es6",
-        "target": "es6",
+        "target": "es2017",
         "sourceMap": true,
         "noImplicitReturns": true,
         "noEmitOnError": true,

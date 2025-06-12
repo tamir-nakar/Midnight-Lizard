@@ -251,7 +251,7 @@ class SettingsManager extends BaseSettingsManager implements ISettingsManager
             catch (error)
             {
                 const reason = await this.getErrorReason(error);
-                alert("Midnight Lizard\n" + this._i18n.getMessage("applyOnPageFailureMessage") + reason);
+                alert("Midnight Chameleon\n" + this._i18n.getMessage("applyOnPageFailureMessage") + reason);
             }
         }
     }

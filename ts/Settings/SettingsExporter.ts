@@ -21,7 +21,7 @@ class SettingsExporter implements ISettingsExporter
     {
         const fileContentObject: SettingsFile =
         {
-            description: "Midnight Lizard Color Scheme File",
+            description: "Midnight Chameleon Color Scheme File",
             version: this._app.version,
             timestamp: new Date(),
             colorSchemes:

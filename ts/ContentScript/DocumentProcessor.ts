@@ -336,7 +336,7 @@ class DocumentProcessor implements IDocumentProcessor
                 {
                     this._settingsManager.onSettingsChanged.addListener((response, shift) =>
                     {
-                        throw new Error("Midnight Lizard has been updated. Please refresh the page.");
+                        throw new Error("Midnight Chameleon has been updated. Please refresh the page.");
                     }, this);
                 }
                 return false;
