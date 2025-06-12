@@ -25,7 +25,7 @@ module.exports = (env, args) => {
             extensions: ['.ts', '.js']
         },
         optimization: {
-            minimize: false
+            minimize: args.mode === 'production'
         },
         output: {
             filename: bundleName,
@@ -42,7 +42,7 @@ module.exports = (env, args) => {
         'popup.js');
 
     const backgroundPageConfig = sharedConfig(
-        './ts/Chrome/ChromeBackgroundPageStarter.ts',
+        './ts/Chrome/ServiceWorkerStarter.ts',
         'background-page.js');
 
     const pageScriptConfig = sharedConfig(

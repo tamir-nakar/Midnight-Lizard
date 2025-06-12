@@ -27,25 +27,30 @@ export class ChromeApplicationInstaller implements IApplicationInstaller
                 .query({})
                 .then(tabs => tabs.map(tab =>
                 {
-                    for (const css of mainInjection.css!)
+                    if (tab.id && !tab.url?.startsWith('chrome://') && !tab.url?.startsWith('chrome-extension://'))
                     {
-                        this._chromePromise.tabs
-                            .insertCSS(tab.id!, {
-                                allFrames: true,
-                                matchAboutBlank: true,
-                                runAt: mainInjection.run_at,
-                                file: css
+                        for (const css of mainInjection.css!)
+                        {
+                            this._chromePromise.scripting
+                                .insertCSS({
+                                    target: { 
+                                        tabId: tab.id,
+                                        allFrames: true
+                                    },
+                                    files: [css]
+                                })
+                                .catch(this.printError);
+                        }
+                        this._chromePromise.scripting
+                            .executeScript({
+                                target: {
+                                    tabId: tab.id,
+                                    allFrames: true
+                                },
+                                files: [mainInjection.js![0]]
                             })
                             .catch(this.printError);
                     }
-                    this._chromePromise.tabs
-                        .executeScript(tab.id!, {
-                            allFrames: true,
-                            matchAboutBlank: true,
-                            runAt: "document_idle",
-                            file: mainInjection.js![0]
-                        })
-                        .catch(this.printError);
                 }))
                 .catch(this.printError);
         }, this._app.isDebug ? 3000 : 100);

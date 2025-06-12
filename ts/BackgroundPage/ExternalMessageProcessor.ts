@@ -72,7 +72,7 @@ export class ExternalMessageProcessor implements IExternalMessageProcessor
             catch (error)
             {
                 this.messageBus.postMessage(port,
-                    new ErrorMessage("Midnight Lizard extension failed", {
+                    new ErrorMessage("Midnight Chameleon extension failed", {
                         message: error.message || error, stack: error.stack
                     }));
             }

@@ -9,11 +9,21 @@ export class ChromeApplicationSettings implements IApplicationSettings
     protected readonly _isDebug: boolean;
     get isDebug() { return this._isDebug }
 
-    get isInIncognitoMode() { return chrome.extension.inIncognitoContext }
+    get isInIncognitoMode() { 
+        try {
+            return chrome.extension.inIncognitoContext;
+        } catch {
+            return false;
+        }
+    }
 
     get currentLocale()
     {
-        return chrome.runtime.getManifest().current_locale || "en";
+        try {
+            return chrome.runtime.getManifest().current_locale || "en";
+        } catch {
+            return "en";
+        }
     }
 
     get browserName()
@@ -25,73 +35,113 @@ export class ChromeApplicationSettings implements IApplicationSettings
 
     get browserVendor(): BrowserVendor
     {
-        if (/Edg\//.test(navigator.userAgent))
+        if (typeof navigator !== 'undefined')
         {
-            return BrowserVendor.Microsoft;
+            if (/Edg\//.test(navigator.userAgent))
+            {
+                return BrowserVendor.Microsoft;
+            }
+            else if (/OPR/.test(navigator.userAgent))
+            {
+                return BrowserVendor.Opera;
+            }
+            else if (/UBrowser/.test(navigator.userAgent))
+            {
+                return BrowserVendor.UC;
+            }
+            else if (this.browserName === BrowserName.Firefox)
+            {
+                return BrowserVendor.Mozilla;
+            }
+            else
+            {
+                return BrowserVendor.Google;
+            }
         }
-        else if (/OPR/.test(navigator.userAgent))
-        {
-            return BrowserVendor.Opera;
-        }
-        else if (/UBrowser/.test(navigator.userAgent))
-        {
-            return BrowserVendor.UC;
-        }
-        else if (this.browserName === BrowserName.Firefox)
-        {
-            return BrowserVendor.Mozilla;
-        }
-        else
-        {
-            return BrowserVendor.Google;
-        }
+        // Fallback for service workers
+        return this.browserName === BrowserName.Firefox 
+            ? BrowserVendor.Mozilla 
+            : BrowserVendor.Google;
     }
 
     get isMobile()
     {
-        return /mobile/gi.test(navigator.userAgent);
+        return typeof navigator !== 'undefined' 
+            ? /mobile/gi.test(navigator.userAgent)
+            : false;
     }
 
     get isDesktop()
     {
-        return !/mobile/gi.test(navigator.userAgent);
+        return typeof navigator !== 'undefined' 
+            ? !/mobile/gi.test(navigator.userAgent)
+            : true;
     }
 
     protected readonly _preserveDisplay: boolean = false;
     get preserveDisplay() { return this._preserveDisplay }
 
-    get version() { return chrome.runtime.getManifest().version }
-    get id() { return chrome.runtime.id }
+    get version() { 
+        try {
+            return chrome.runtime.getManifest().version;
+        } catch {
+            return "unknown";
+        }
+    }
+
+    get id() { 
+        try {
+            return chrome.runtime.id;
+        } catch {
+            return "unknown";
+        }
+    }
 
     constructor(
         protected readonly _rootDocument: Document,
         protected readonly _chrome: ChromePromise)
     {
-        if (chrome.runtime.id === "pbnndmlekkboofhnbonilimejonapojg" || // chrome
-            chrome.runtime.id === "{8fbc7259-8015-4172-9af1-20e1edfbbd3a}" || // firefox
-            chrome.runtime.getManifest().update_url)
-        {   // production environment
-            this._isDebug = false;
-        }
-        else
-        {   // development environment
+        try {
+            if (chrome.runtime.id === "pbnndmlekkboofhnbonilimejonapojg" || // chrome
+                chrome.runtime.id === "{8fbc7259-8015-4172-9af1-20e1edfbbd3a}" || // firefox
+                chrome.runtime.getManifest().update_url)
+            {   // production environment
+                this._isDebug = false;
+            }
+            else
+            {   // development environment
+                this._isDebug = true;
+            }
+        } catch {
+            // Fallback if Chrome APIs are not available
             this._isDebug = true;
         }
 
-        // console.log(`Midnight Lizard ${this._isDebug ? "Development" : "Production"}-${chrome.runtime.id}`);
+        // console.log(`Midnight Chameleon ${this._isDebug ? "Development" : "Production"}-${this.id}`);
 
-        this._preserveDisplay = /facebook|baidu/gi.test(_rootDocument.location!.hostname);
+        // Only access document if it's available (not in service workers)
+        this._preserveDisplay = _rootDocument && _rootDocument.location 
+            ? /facebook|baidu/gi.test(_rootDocument.location.hostname)
+            : false;
     }
 
     public getFullPath(relativePath: string)
     {
-        return chrome.runtime.getURL(relativePath);
+        try {
+            return chrome.runtime.getURL(relativePath);
+        } catch {
+            return relativePath;
+        }
     }
 
     public getStorageLimits(
         storage: StorageType,
         limit: StorageLimits)
     {
-        return chrome.storage[storage as 'sync'][limit];
+        try {
+            return chrome.storage[storage as 'sync'][limit];
+        } catch {
+            return 0;
+        }
     }
 }

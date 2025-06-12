@@ -8,7 +8,23 @@ import { IApplicationInstaller } from "./IApplicationInstaller";
 import { IExternalMessageProcessor } from "./ExternalMessageProcessor";
 import { ILocalMessageProcessor } from "./LocalMessageProcessor";
 
-Container.register(Document, class { constructor() { return document } });
+// Service workers don't have access to document, so we provide a safe implementation
+if (typeof document !== 'undefined') {
+    Container.register(Document, class { constructor() { return document } });
+} else {
+    // For service workers, provide a minimal mock document
+    Container.register(Document, class { 
+        constructor() { 
+            return {
+                location: null,
+                body: null,
+                documentElement: null,
+                head: null
+            } as any;
+        } 
+    });
+}
+
 Container.register(CurrentExtensionModule, class
 {
     constructor()

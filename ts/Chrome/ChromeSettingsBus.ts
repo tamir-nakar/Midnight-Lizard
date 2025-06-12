@@ -1,6 +1,5 @@
 import { ColorScheme } from "../Settings/ColorScheme";
-import
-{
+import {
     SettingsMessageAction, MessageTypes, SettingsDeletionRequestMessage,
     NewSettingsApplicationRequestMessage, CurrentSettingsRequestMessage,
     IsEnabledToggleRequestMessage, ZoomChangedMessage, SettingsAppliedMessage
@@ -32,8 +31,10 @@ export class ChromeSettingsBus implements ISettingsBus
             {
                 if (this._app.isDebug)
                 {
-                    request.receiver = _module.name + " - " +
-                        (window.top === window.self ? "Main frame" : "Child frame");
+                    const frameInfo = (typeof window !== 'undefined' && window.top && window.self) 
+                        ? (window.top === window.self ? "Main frame" : "Child frame")
+                        : "Service Worker";
+                    request.receiver = _module.name + " - " + frameInfo;
                     console.log(request);
                 }
                 // requests from popup window or background page
@@ -41,7 +42,11 @@ export class ChromeSettingsBus implements ISettingsBus
                     request.sender === ExtensionModule.BackgroundPage)
                 {
                     // actions only for content scripts in top frame
-                    if (window.top === window.self)
+                    const isTopFrame = typeof window !== 'undefined' && window.top && window.self 
+                        ? (window.top === window.self) 
+                        : true; // In service worker, always process as top frame
+                    
+                    if (isTopFrame)
                     {
                         switch (request.action)
                         {
@@ -191,7 +196,11 @@ export class ChromeSettingsBus implements ISettingsBus
 
     public notifySettingsApplied(settings: ColorScheme)
     {
-        if (window.top === window.self)
+        const isTopFrame = typeof window !== 'undefined' && window.top && window.self 
+            ? (window.top === window.self) 
+            : true; // In service worker, always process as top frame
+            
+        if (isTopFrame)
         {
             return this.sendMessage<ColorScheme>(
                 new SettingsAppliedMessage(

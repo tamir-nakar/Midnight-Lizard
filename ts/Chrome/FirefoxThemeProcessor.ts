@@ -27,7 +27,7 @@ export class FirefoxThemeProcessor implements IThemeProcessor
         selectionColorProcessor: IDynamicTextSelectionColorProcessor,
         buttonColorProcessor: IDynamicButtonBackgroundColorProcessor)
     {
-        if (app.browserName === BrowserName.Firefox)
+        if (app.browserName === BrowserName.Firefox && typeof document !== 'undefined' && document.body)
         {
             browser.runtime.getBrowserInfo().then(info =>
             {
