@@ -10,6 +10,8 @@ export class ChromeTranslationAccessor implements ITranslationAccessor
 
     public getMessage(messageKey: string, ...substitutions: string[]): string
     {
-        return chrome.i18n.getMessage(messageKey, substitutions);
+        // Translation system disabled - return empty string
+        // All text should be directly in HTML without i18n
+        return "";
     }
 }

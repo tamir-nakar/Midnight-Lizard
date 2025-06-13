@@ -16,64 +16,8 @@ class DocumentTranslator implements IDocumentTranslator
 
     public translateDocument(doc: Document): void
     {
-        for (const tag of Array.from(doc.querySelectorAll("[i18n]")))
-        {
-            const basis = tag.getAttribute("i18n")!;
-            if (tag.hasAttribute("i18n-attr"))
-            {
-                for (const attr of tag.getAttribute("i18n-attr")!.split(","))
-                {
-                    const attrMsg = this._i18n.getMessage(`${basis}_@${attr}`);
-                    if (attrMsg)
-                    {
-                        tag.setAttribute(attr, attrMsg);
-                    }
-                }
-            }
-            if (tag.hasAttribute("i18n-text"))
-            {
-                const txtNodeSuffix = tag.getAttribute("i18n-text")!;
-                const textNode = Array.prototype.find.call(tag.childNodes, (node: Node) =>
-                    node.nodeName === "#text" &&
-                    node.textContent != null && node.textContent != undefined &&
-                    node.textContent.trim() != "") as Text | null;
-                const textMsg = this._i18n.getMessage(`${basis}_text_${txtNodeSuffix}`);
-                if (textMsg)
-                {
-                    if (!textNode)
-                    {
-                        tag.appendChild(doc.createTextNode(textMsg));
-                    }
-                    else
-                    {
-                        textNode.textContent = textMsg;
-                    }
-                }
-            }
-            if (tag.hasAttribute("i18n-html"))
-            {
-                const htmlMsgSuffix = tag.getAttribute("i18n-html")!;
-                const htmlMsg = this._i18n.getMessage(`${basis}_html_${htmlMsgSuffix}`);
-                if (htmlMsg)
-                {
-                    // Use CSP-compliant approach: parse HTML safely using DOMParser
-                    const parser = new DOMParser();
-                    const parsedDoc = parser.parseFromString(htmlMsg, 'text/html');
-                    
-                    // Clear existing content
-                    while (tag.firstChild) {
-                        tag.removeChild(tag.firstChild);
-                    }
-                    
-                    // Import and append parsed nodes
-                    const bodyContent = parsedDoc.body;
-                    while (bodyContent.firstChild) {
-                        const importedNode = doc.importNode(bodyContent.firstChild, true);
-                        tag.appendChild(importedNode);
-                        bodyContent.removeChild(bodyContent.firstChild);
-                    }
-                }
-            }
-        }
+        // Translation system disabled - English only
+        // All text should be directly in HTML without i18n attributes
+        return;
     }
 }

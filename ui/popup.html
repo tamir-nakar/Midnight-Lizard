@@ -21,7 +21,7 @@
         type="text/css">
   <link href="../css/helio-button.css" rel="stylesheet"
         type="text/css">
-  <link href="../css/slider.css" rel="stylesheet"
+  <link href="../css/slider.css" rel="stylesheet"/
         type="text/css">
   <link href="../css/checkbox.css" rel="stylesheet"
         type="text/css">
@@ -213,10 +213,54 @@ L 14.5 12 z" />
                 <li class="ml-tab-item-separator">
                     &nbsp;</li>
             </ul>
-            <div id="default-tab-content" class="ml-tab-content"
-                 i18n="introduction" i18n-html="content">
-            </div>
-            <div id="common" class="ml-tab-content"><br/>
+            <div id="default-tab-content" class="ml-tab-content">
+                <h3>Introduction</h3>
+                <p>
+                    <run class="intro intro-toggle">
+                        To
+                        <span>enable</span> or
+                        <span>disable</span> an entire extension switch the toggle button in the top-right corner.
+                    </run>
+                    <run class="intro intro-host">
+                        You also can toggle any particular website between
+                        <span>blocklist</span> and
+                        <span>allowlist</span>
+                        by clicking on its label on the popup header bar.
+                    </run>
+                </p>
+                <p class="intro intro-select-scheme">
+                    You can choose one of the
+                    <span>predefined color schemes</span> from the drop-down list on the right pane and use it off the shelf.
+                    You can install more color schemes from
+                    <a target="_blank" title="https://midnight-lizard.org/schemes" href="https://midnight-lizard.org/schemes">midnight-lizard.org</a>.
+                </p>
+                <p class="intro intro-tabs">
+                    Apart from that you can
+                    <span>adjust</span> your chosen scheme as you wish. For this purpose you have all the settings in the tabs on the left pane.
+                    Any changes you would have made will be immediately applied but only on the popup so you can safely play with it.
+                </p>
+                <p>
+                    <run class="intro intro-apply">
+                        To assign the settings of your preference to the
+                        <span>current website</span> press
+                        <q>Apply</q>
+                        button on the right pane.
+                    </run>
+                    <run class="intro intro-edit-schemes">
+                        Or you can
+                        <span>add your scheme</span> to the list of the predefined color schemes for further use on any other website.
+                    </run>
+                </p>
+                <p class="intro intro-default">
+                    If you want to set up current settings as a
+                    <span>default settings</span> for all websites press
+                    <q>Set as default</q> button on the right pane.
+                </p>
+                <p class="intro intro-help">
+                    You can find
+                    <span>more help</span> on the support forum, read existing tutorials or ask a new question.
+                </p>
+            </div>             <div id="common" class="ml-tab-content"><br/>
                 <div class="ml-input-container ml-mode-container">
                     <label class="ml-dialog-label" for="mode"
                            i18n="mode" i18n-attr="title" i18n-text="label">Processing mode</label>
@@ -266,7 +310,7 @@ L 14.5 12 z" />
                     <svg for="modeAutoSwitchLimit" role="button" class="ml-input-range-icon high"
                          viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path d="M0 0h24v24H0z" fill="none" />
-                        <path d="M3 9h4V5H3v4zm0 5h4v-4H3v4zm5 0h4v-4H8v4zm5 0h4v-4h-4v4zM8 9h4V5H8v4zm5-4v4h4V5h-4zm5 9h4v-4h-4v4zM3 19h4v-4H3v4zm5 0h4v-4H8v4zm5 0h4v-4h-4v4zm5 0h4v-4h-4v4zm0-14v4h4V5h-4z"/>
+                        <path d="M3 9h4V5H3v4zm0 5h4v-4H3v4zm5 0h4v-4H8v4zm5 0h4v-4h-4v4zm8 0h4V5H8v4zm5-4v4h4V5h-4zm5 9h4v-4h-4v4zM3 19h4v-4H3v4zm5 0h4v-4H8v4zm5 0h4v-4h-4v4zm5 0h4v-4h-4v4zm0-14v4h4V5h-4z"/>
                     </svg>
                 </div>
             </div>
@@ -366,7 +410,10 @@ L 14.5 12 z" />
                         <path d="M0 0h24v24H0z" fill="none" />
                         <path d="M18.7 12.4c-.28-.16-.57-.29-.86-.4.29-.11.58-.24.86-.4 1.92-1.11 2.99-3.12 3-5.19-1.79-1.03-4.07-1.11-6 0-.28.16-.54.35-.78.54.05-.31.08-.63.08-.95 0-2.22-1.21-4.15-3-5.19C10.21 1.85 9 3.78 9 6c0 .32.03.64.08.95-.24-.2-.5-.39-.78-.55-1.92-1.11-4.2-1.03-6 0 0 2.07 1.07 4.08 3 5.19.28.16.57.29.86.4-.29.11-.58.24-.86.4-1.92 1.11-2.99 3.12-3 5.19 1.79 1.03 4.07 1.11 6 0 .28-.16.54-.35.78-.54-.05.32-.08.64-.08.96 0 2.22 1.21 4.15 3 5.19 1.79-1.04 3-2.97 3-5.19 0-.32-.03-.64-.08-.95.24.2.5.38.78.54 1.92 1.11 4.2 1.03 6 0-.01-2.07-1.08-4.08-3-5.19zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4z"
                         />
-                        <ellipse rx="3" ry="3" cy="12" cx="12" />
+                        <ellipse rx="3"
+                                 ry="3"
+                                 cy="12"
+                                 cx="12" />
                     </svg>
                 </div>
                 <div class="ml-input-container percent">
@@ -380,8 +427,13 @@ L 14.5 12 z" />
                         <path d="M0 0h24v24H0z" fill="none" />
                         <path d="M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"
                         />
-                        <ellipse rx="6" ry="6" cy="12" cx="12" fill-opacity="0.1" />
-                        <path d="M12,1 L12,6 A5,5 1 1,0 12,18 z" fill-opacity="0.2" />
+                        <ellipse rx="6"
+                                 ry="6"
+                                 cy="12"
+                                 cx="12"
+                                 fill-opacity="0.1" />
+                        <path d="M12,1 L12,6 A5,5 1 1,0 12,18 z"
+                              fill-opacity="0.2" />
                     </svg>
                     <svg for="backgroundContrast" role="button" class="ml-input-range-icon high" 
                          viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -2124,8 +2176,7 @@ L 14.5 12 z" />
       <option>21</option>
       <option>24</option>
   </datalist>
-
   <script src="../js/popup.js"></script>
-<script>function showAboutPopup(event) { event.preventDefault(); alert("About Midnight Chameleon v1.0.0\n\n🦎➡️🦎 Revival Fork of Midnight Lizard\n\nThis is a community-revived fork of the original Midnight Lizard extension, which was created by Pavel Agarkov and has not been updated since May 2021.\n\nThe original extension stopped working due to outdated Manifest V2 architecture. This fork:\n\n• ✅ Updates to Manifest V3 for continued Chrome support\n• ✅ Fixes compatibility issues and runtime errors\n• ✅ Maintains all original dark theme functionality\n• ✅ Preserves credit to the original author\n\nOriginal Extension: Midnight Lizard by Pavel Agarkov (2017-2021)\nFork Maintainers: Midnight Chameleon Team (2024+)\n\nThis fork exists to keep this beloved dark theme extension alive for the community!"); }</script></body>
-
+  <script src="../js/about-popup.js"></script>
+</body>
 </html>
